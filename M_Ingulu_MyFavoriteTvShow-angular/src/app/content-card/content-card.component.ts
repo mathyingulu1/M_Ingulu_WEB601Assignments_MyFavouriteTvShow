@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Contentlist} from "../helper-files/content-list";
+//import {Contentinterface} from "../helper-files/content-interface";
 
 @Component({
   selector: 'app-content-card',
@@ -7,10 +7,10 @@ import {Contentlist} from "../helper-files/content-list";
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent implements OnInit {
-  myList: Contentlist;
+  myList: contentlist;
 
   constructor(){
-    this.myList = new Contentlist();
+    this.myList = new contentlist();
     console.log("my list contains these items: ", this.myList.items);
 
     this.myList.addItem({

@@ -1,0 +1,20 @@
+<p>content-list works!</p>
+<div class="Card">
+    <header class="header">
+        <h3>{{item.title}}</h3>
+    </header>
+    <div class="box">
+        <img(click)="OnImageClick()" [src]="item.imgURL"/>
+        <p*ngfl="item.description">{{ item class="description"}}></p>
+        <p>
+            {{item.type}}
+        </p>
+        <p>
+            {{item.creator}}
+        </p>
+
+        <div class="tags">
+            <span*ngFor="let tag of item.tags">{{tag}]</span>
+        </div>
+    </div>
+</div>
