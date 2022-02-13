@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentListComponent implements OnInit {
   myList: ContentListComponent;
+  items: any;
+  addItem: any;
 
   constructor() { 
       this.myList = new ContentListComponent();
@@ -43,26 +45,43 @@ export class ContentListComponent implements OnInit {
       title: "who killed sara",
       description: "Tv show",
       creator: "Jose Ignacio",
-      imgURL: "https://en.wikipedia.org/wiki/24_(TV_series)#/media/File:24-Logo.svg",
+      imgURL: "https://en.wikipedia.org/wiki/Who_Killed_Sara%3F#/media/File:Who_Killed_Sara?_logo.png",
       type: "Thriller"
     });
 
     this.myList.addItem({
-      id: 2,
+      id: 3,
       title: "Private Practice",
       description: "Tv show",
       creator: "Shonda Rhimes",
-      imgURL: "https://en.wikipedia.org/wiki/24_(TV_series)#/media/File:24-Logo.svg",
+      imgURL: "https://en.wikipedia.org/wiki/Private_Practice_(TV_series)#/media/File:Privatepracticelogo.jpg",
       type: "american drama"
     });
 
     this.myList.addItem({
-      id: 2,
+      id: 4,
       title: "Vikings",
       description: "Tv show",
       creator: "Michael Hirst",
-      imgURL: "https://en.wikipedia.org/wiki/24_(TV_series)#/media/File:24-Logo.svg",
+      imgURL: "https://en.wikipedia.org/wiki/Vikings_(2013_TV_series)#/media/File:Vikings_Title.png",
       type: "action"
+    });
+
+    this.myList.addItem({
+      id: 5,
+      title: "Euphoria",
+      description: "Tv show",
+      creator: "Sam Levinson",
+      imgURL: "https://en.wikipedia.org/wiki/Euphoria_(American_TV_series)#/media/File:Euphoria_intertitle.png",
+      type: "Teen Drama"
+    });
+
+    this.myList.addItem({
+      id: 6,
+      title: "Bridgerton",
+      description: "Tv show",
+      creator: "Michael Hirst",
+      imgURL: "https://en.wikipedia.org/wiki/Bridgerton#/media/File:Bridgerton_Title_Card.png",
     });
   }
 
