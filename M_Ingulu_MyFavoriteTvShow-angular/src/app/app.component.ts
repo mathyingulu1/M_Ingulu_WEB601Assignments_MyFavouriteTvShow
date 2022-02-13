@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'M_Ingulu_MyFavoriteTvShow-angular';
+
+  show= {
+    title: 'Revenge',
+    creator: 'Mike Kelley',
+    genre: 'Drama'
+  };
 }
