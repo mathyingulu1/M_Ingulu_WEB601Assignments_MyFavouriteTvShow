@@ -5,8 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class HighlightPipe implements PipeTransform {
 
-  transform(value: string, title: string): string {
-    return 'show title';
+  transform(show: Tvshow, dType?: string): string {
+    //return 'show title';
+    return show.type ?? dType ?? "Genre";
   }
 
 }

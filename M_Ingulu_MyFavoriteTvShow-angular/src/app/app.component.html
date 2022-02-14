@@ -473,10 +473,13 @@
 
 </div>
 
-<h1 class="bg-primary">Welcome to Highlight pipe</h1>
-
-<h3>Highlight</h3>
-<div> {{ show.title | Highlight: show.title }}</div>
+<div>
+  <h3>highlight</h3>
+  <div>{{ title | uppercase }}</div>
+  <div>{{ creator | genre | uppercase }}</div>
+</div>
+<app-content-card *ngFor="let item of (show | contentTagged); index as i; last as isLast" [show]="item"
+  [class.is-last]="isLast"></app-content-card>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->

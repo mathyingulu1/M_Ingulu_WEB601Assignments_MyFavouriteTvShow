@@ -9,6 +9,8 @@ export class ContentListComponent implements OnInit {
   myList: ContentListComponent;
   items: any;
   addItem: any;
+  numberOfItems: any;
+  getHtml: any;
 
   constructor() { 
       this.myList = new ContentListComponent();
