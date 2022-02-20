@@ -11,6 +11,8 @@ export class ContentListComponent implements OnInit {
   addItem: any;
   numberOfItems: any;
   getHtml: any;
+  searchMessage: string = "";
+  searchFlag: boolean = false;
 
   constructor() { 
       this.myList = new ContentListComponent();
@@ -88,6 +90,21 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  checkForTitle(searchValue: string): void{
+    let searchList = this.myList.highlight(c => c.title == searchValue);
+    if (searchList.length > 0){
+      this.searchMessage  = "Found the movie!";
+      this.searchFlag = true;
+    }
+    else{
+      this.searchMessage  = "No movie with that title";
+      this.searchFlag = false;
+    }
+  }
+  donothing(){
+
   }
 
 }

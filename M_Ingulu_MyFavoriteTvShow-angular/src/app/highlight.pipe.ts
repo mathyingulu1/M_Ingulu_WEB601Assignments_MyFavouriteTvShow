@@ -5,9 +5,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class HighlightPipe implements PipeTransform {
 
-  transform(show: Tvshow, dType?: string): string {
+  transform(contentList: Content[], highlightByThisType?:string): Content[] {
+    console.log("highlight value: ", highlightByThisType);
     //return 'show title';
-    return show.type ?? dType ?? "Genre";
+    return contentList.highlight(c => {
+      if (highlightByThisType) {
+        return c.type == highlightByThisType;
+      }  else { 
+        return !c.type;
+      }
+    });
   }
 
 }
