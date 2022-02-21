@@ -9,6 +9,8 @@ import { ContentListComponent } from '../content-list/content-list.component';
 })
 export class ContentCardComponent implements OnInit {
   myList: ContentListComponent;
+  @Input() myList.addItem: myList;
+  specialColor = 'blue';
 
   constructor(){
     this.myList = new ContentListComponent();

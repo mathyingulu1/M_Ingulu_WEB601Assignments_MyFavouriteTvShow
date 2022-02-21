@@ -3,8 +3,12 @@
     display: block;
     margin: 16px auto;
     padding: 8px;
-    width: 500px;
+    width: 400px;
     text-align: center;
+}
+
+.type{
+  color: #ff0000;
 }
 :host.first-movie{
     border: 2px solid #000;
@@ -25,14 +29,17 @@
   border-color: green;
   border-width: 5px;
 }
+:host.is-last{
+  background-color:#00ff00;
+}
 .image{
     width: 300px;
 }
 .tag{
     display: inline-block;
-    border-radius: 10px;
-    border: 1px solid #ff0000;
+    border-radius: 20px;
+    border: 1px dotted #000;
     background-color:aqua;
-    margin: 8px;
+    margin: 8px 16px;
     padding: 8px;
 }
