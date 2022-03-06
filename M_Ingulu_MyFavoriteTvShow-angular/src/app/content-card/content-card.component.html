@@ -7,7 +7,7 @@
 <h3 class="title">
     {{ tvshow?.title }}
 </h3>
-<img (click)="imageClicked()" *ngIf="tvshow?.imgURL" class="image" [src]="tvshow?.imgURL">
+<img (click)="imageClicked()" *ngIf="tvshow?.imgURL" class="image" src="https://en.wikipedia.org/wiki/Vikings:_Valhalla#/media/File:Vikings_Valhalla_logo.jpg">
 <p>
     {{ tvshow?.description }}
 </p>
@@ -15,11 +15,11 @@
     <div class="creator">
         {{ tvshow?.creator}}
     </div>
-    <div *ngIf="tvshow?.type" class="tvshow?.type">
+    <div appHoverAffect elementType="type" *ngIf="tvshow?.type" class="tvshow?.type">
         {{ tvshow?.type }}
     </div>
     <div class="tags" *ngIf="tvshow?.tags">
-        <span class="tag" *ngFor="let tag of tvshow?.tags">
+        <span appHoverAffect elementType="tag" class="tag" *ngFor="let tag of tvshow?.tags">
             #{{ tag }}
         </span>
     </div>

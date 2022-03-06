@@ -26,14 +26,17 @@
   <!--  <div [class.success]="searchFlag" [class.fail]="!searchFlag"> {{ searchMessage }} </div>-->
   </div>
   
-  <app-content-card *ngFor="let item of (movieList | contentTypeFilter); first as isFirstMovieOnList" [class.first-movie]="isFirstMovieOnList"
-      [movie]="item" class="notype" [class.found]="item.title == search.value"></app-content-card>
+  <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstTvshowOnList || isLast"
+      *ngFor="let item of (myList | contentTypeFilter); first as isFirstTvshowList; last as isLast" [class.first-Tvshow]="isFirstTvshowOnList
+      [Tvshow]="item" class="notype" [class.found]="item.title == search.value"></app-content-card>
   
-  <app-content-card *ngFor="let item of (movieList | contentTypeFilter: 'drama'); first as isFirstMovieOnList" [class.first-movie]="isFirstMovieOnList"
-                    [movie]="item" class="drama" [class.found]="item.title == search.value"></app-content-card>
+  <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstTvshowOnList || isLast"
+        *ngFor="let item of (myList | contentTypeFilter: 'drama'); first as isFirstTvshowOnList; last as isLast" [class.first-Tvshow]="isFirstTvshowOnList"
+        [Tvshow]="item" class="drama" [class.found]="item.title == search.value"></app-content-card>
   
-  <app-content-card *ngFor="let item of (movieList | contentTypeFilter: 'sci-fi'); first as isFirstMovieOnList" [class.first-movie]="isFirstMovieOnList"
-                    [movie]="item" class="sci-fi" [class.found]="item.title == search.value"></app-content-card>
+  <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstTvshowOnList || isLast"
+        *ngFor="let item of (myList | contentTypeFilter: 'Action'); first as isFirstTvshowOnList ; last as isLast"[class.first-Tvshow]="isFirstTvshowOnList"
+         [Tvshow]="item" class="Action" [class.found]="item.title == search.value"></app-content-card>
   
-  <app-content-card *ngFor="let item of (movieList | contentTypeFilter: 'cartoon'); first as isFirstMovieOnList" [class.first-movie]="isFirstMovieOnList"
-                    [movie]="item" class="cartoon" [class.found]="item.title == search.value"></app-content-card>
+  <!--<app-content-card *ngFor="let item of (myList | contentTypeFilter: 'cartoon'); first as isFirstTvshowOnList" [class.first-Tvshow]="isFirstTvshowOnList"
+                    [Tvshow]="item" class="Romantic" [class.found]="item.title == search.value"></app-content-card>-->

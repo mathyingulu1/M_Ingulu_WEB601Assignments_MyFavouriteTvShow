@@ -13,6 +13,7 @@ export class ContentListComponent implements OnInit {
   getHtml: any;
   searchMessage: string = "";
   searchFlag: boolean = false;
+  light: any;
 
   constructor() { 
       this.myList = new ContentListComponent();
@@ -21,9 +22,10 @@ export class ContentListComponent implements OnInit {
       this.myList.addItem({
         id: 0,
         title: "Prison Break",
-        description: "Tv show",
+        description: "A Tv show in a tv show",
         creator: "Paul Scheuring",
         imgURL: "https://en.wikipedia.org/wiki/Prison_Break#/media/File:Prison-break-s1-intro.jpg"
+        tags: ["tvshowinatvshow", "Dr house"]
     });
 
     this.myList.addItem({
@@ -32,7 +34,7 @@ export class ContentListComponent implements OnInit {
       description: "Teenager show",
       creator: "Mark Schwahn",
       imgURL: "https://en.wikipedia.org/wiki/One_Tree_Hill_(season_4)#/media/File:One_Tree_Hill_-_Season_4_-_DVD.JPG",
-      type: "drama"
+      //type: "drama"
     });
 
     this.myList.addItem({
@@ -42,15 +44,17 @@ export class ContentListComponent implements OnInit {
       creator: "Joel Surnow",
       imgURL: "https://en.wikipedia.org/wiki/24_(TV_series)#/media/File:24-Logo.svg",
       type: "american drama"
+      tags: ["lotsOfMainCharacters", "firstofmany"]
     });
 
     this.myList.addItem({
-      id: 2,
+      id: 3,
       title: "who killed sara",
       description: "Tv show",
       creator: "Jose Ignacio",
-      imgURL: "https://en.wikipedia.org/wiki/Who_Killed_Sara%3F#/media/File:Who_Killed_Sara?_logo.png",
+      imgURL: "",
       type: "Thriller"
+      
     });
 
     this.myList.addItem({
@@ -58,7 +62,7 @@ export class ContentListComponent implements OnInit {
       title: "Private Practice",
       description: "Tv show",
       creator: "Shonda Rhimes",
-      imgURL: "https://en.wikipedia.org/wiki/Private_Practice_(TV_series)#/media/File:Privatepracticelogo.jpg",
+      imgURL: "",
       type: "american drama"
     });
 
@@ -67,7 +71,7 @@ export class ContentListComponent implements OnInit {
       title: "Vikings",
       description: "Tv show",
       creator: "Michael Hirst",
-      imgURL: "https://en.wikipedia.org/wiki/Vikings_(2013_TV_series)#/media/File:Vikings_Title.png",
+      imgURL: "",
       type: "action"
     });
 
@@ -76,7 +80,7 @@ export class ContentListComponent implements OnInit {
       title: "Euphoria",
       description: "Tv show",
       creator: "Sam Levinson",
-      imgURL: "https://en.wikipedia.org/wiki/Euphoria_(American_TV_series)#/media/File:Euphoria_intertitle.png",
+      imgURL: "",
       type: "Teen Drama"
     });
 
@@ -85,7 +89,7 @@ export class ContentListComponent implements OnInit {
       title: "Bridgerton",
       description: "Tv show",
       creator: "Michael Hirst",
-      imgURL: "https://en.wikipedia.org/wiki/Bridgerton#/media/File:Bridgerton_Title_Card.png",
+      imgURL:"",
     });
   }
 
@@ -93,13 +97,13 @@ export class ContentListComponent implements OnInit {
   }
 
   checkForTitle(searchValue: string): void{
-    let searchList = this.myList.highlight(c => c.title == searchValue);
+    let searchList = this.myList.light((c: { title: string; }) => c.title == searchValue);
     if (searchList.length > 0){
-      this.searchMessage  = "Found the movie!";
+      this.searchMessage  = "Found the tvshow!";
       this.searchFlag = true;
     }
     else{
-      this.searchMessage  = "No movie with that title";
+      this.searchMessage  = "No tvshow with that title";
       this.searchFlag = false;
     }
   }
