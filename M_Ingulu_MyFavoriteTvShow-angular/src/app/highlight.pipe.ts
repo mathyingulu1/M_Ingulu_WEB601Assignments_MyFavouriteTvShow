@@ -6,12 +6,12 @@ import { Content } from './helper-files/content-interface';
 })
 export class HighlightPipe implements PipeTransform {
 
-  transform(contentList: Content[], highlightByThisType?:string): Content[] {
-    console.log("highlight value: ", highlightByThisType);
+  transform(contentList: Content[], lightByThisType?:string): Content[] {
+    console.log("light value: ", lightByThisType);
     //return 'show title';
-    return contentList.highlight(c => {
-      if (highlightByThisType) {
-        return c.type == highlightByThisType;
+    return contentList.light(c => {
+      if (lightByThisType) {
+        return c.type == lightByThisType;
       }  else { 
         return !c.type;
       }
