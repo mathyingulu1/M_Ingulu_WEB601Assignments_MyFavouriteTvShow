@@ -15,6 +15,8 @@ export class ContentCardComponent implements OnInit {
   constructor(){
     this.myList = new ContentListComponent();
     console.log("my list contains these items: ", this.myList.items);
+    this.myList = { id: 0, name: '', body: '', imageUrl: ''};
+
 
     this.myList.addItem({
       id: 0,

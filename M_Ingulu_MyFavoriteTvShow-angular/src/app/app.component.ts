@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Tvshow} from '../helper-files/Tvshow';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent {
         creator: 'Mike Kelley',
         imgURL: '',
         genre: 'Drama'
+        tags: ["originals"]
       },
       {
         id: 1,
@@ -24,6 +26,7 @@ export class AppComponent {
         creator: 'Joel Surnow',
         imgURL: 'https://en.wikipedia.org/wiki/24_(TV_series)#/media/File:24-Logo.svg',
         genre: 'Drama'
+        tags: ["Empire"]
       },
       {
         id: 2,
@@ -80,6 +83,51 @@ export class AppComponent {
       creator = 1;
   }
 
+  let ourPromise = new Promise((success, fail) => {
+    let testPass = false;
+    if (testPass) {
+      success("Success was achieved!");
+    }
+    else {
+      fail("Failure :(");
+    }
+  });
+
+  console.log("First console log");
+
+  ourPromise
+    .then(function (successMessage) {
+      console.log("The promise succeeded and came back with the following message: ", successMessage);
+    })
+    .catch(function (failureMessage) {
+      console.log("The promise failed and came back with the following message: ", failureMessage);
+    });
+
+  console.log("Fourth console log");
+
+  let getStuff = async function () {
+    return "stuff";
+  }
+  // function async getStuffUsingOldFunctionDefinition(): string{
+  //   return "stuff";
+  // }
+  let getTheSameStuff = async function () {
+    return "Similar stuff";
+  }
+
+  let getAllTheStuff = async () => {
+    const theFirstStuff = getStuff();
+    const theSecondStuff = getTheSameStuff();
+    //returns both promises
+    return await Promise.all([theFirstStuff, theSecondStuff]);
+  }
+  getAllTheStuff().then((value) => {
+    console.log("First value from the getAllTheStuff method: ", value[0]);
+    console.log("Second value from the getAllTheStuff method: ", value[1]);
+  });
+
+}
+
   updatePage(cardNameOnTheTypescriptSide: string): void {
     console.log("We did it, ", cardNameOnTheTypescriptSide);
     cardNameOnTheTypescriptSide = "somethingelse"
@@ -88,5 +136,24 @@ export class AppComponent {
     this.title = "Changed it from the submit button";
   }
 
+  addshowToList(newTvshowFromChild: show) {
+    console.log("old array values ", this.show);
+
+    this.show.push(newTvshowFromChild);
+
+    // We need to clone the array for the pipe to work
+    // This is an old way of cloning an object
+    // this.bunchOfFood = Object.assign([], this.bunchOfFood);
+
+    // This is a newer, faster way to clone an array
+    this.show = [...this.show]; // using the spread operator
+
+    console.log("Did the item get added? ", newTvshowFromChild);
+    console.log("new array values ", this.show);
+  }
+}
+
 
 }
+
+

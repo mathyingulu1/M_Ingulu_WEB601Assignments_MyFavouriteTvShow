@@ -350,6 +350,14 @@
 
   </div>
 
+  <app-content-card (newTvshowEvent)="addshowToList($event)"></app-content-card>
+
+  <div>
+    <h1>With pipe</h1>
+    <app-content-card *ngFor="let item of (Tvshow | contentTagged); index as i; last as isLast" [myListItem]="item"
+        [class.is-last]="isLast"></app-content-card>
+</div>
+
   <!-- Resources -->
   <h2>Resources</h2>
   <p>Here are some links to help you get started:</p>
