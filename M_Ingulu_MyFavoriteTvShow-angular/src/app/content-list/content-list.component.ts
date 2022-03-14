@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Content } from '../helper-files/Tvshow';
 
 @Component({
   selector: 'app-content-list',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent implements OnInit {
-  myList: ContentListComponent;
+  myList: Content[];
   items: any;
   addItem: any;
   numberOfItems: any;
@@ -16,28 +17,26 @@ export class ContentListComponent implements OnInit {
   light: any;
 
   constructor() { 
-      this.myList = new ContentListComponent();
-      console.log("my list contains these items: ", this.myList.items);
+      //this.myList = new ContentListComponent();
+      //console.log("my list contains these items: ", this.myList.items);
 
-      this.myList.addItem({
+      this.myList = [{
         id: 0,
         title: "Prison Break",
         description: "A Tv show in a tv show",
         creator: "Paul Scheuring",
         imgURL: "https://en.wikipedia.org/wiki/Prison_Break#/media/File:Prison-break-s1-intro.jpg"
         tags: ["tvshowinatvshow", "Dr house"]
-    });
+    }, {
 
-    this.myList.addItem({
       id: 1,
       title: "One Tree Hill",
       description: "Teenager show",
       creator: "Mark Schwahn",
       imgURL: "https://en.wikipedia.org/wiki/One_Tree_Hill_(season_4)#/media/File:One_Tree_Hill_-_Season_4_-_DVD.JPG",
       //type: "drama"
-    });
+    }, {
 
-    this.myList.addItem({
       id: 2,
       title: "24 hours",
       description: "Tv show",
@@ -45,9 +44,8 @@ export class ContentListComponent implements OnInit {
       imgURL: "https://en.wikipedia.org/wiki/24_(TV_series)#/media/File:24-Logo.svg",
       type: "american drama"
       tags: ["lotsOfMainCharacters", "firstofmany"]
-    });
+    }, {
 
-    this.myList.addItem({
       id: 3,
       title: "who killed sara",
       description: "Tv show",
@@ -55,49 +53,45 @@ export class ContentListComponent implements OnInit {
       imgURL: "",
       type: "Thriller"
       
-    });
+    }, {
 
-    this.myList.addItem({
-      id: 3,
+      id: 4,
       title: "Private Practice",
       description: "Tv show",
       creator: "Shonda Rhimes",
       imgURL: "",
       type: "american drama"
-    });
+    }, {
 
-    this.myList.addItem({
-      id: 4,
+      id: 5,
       title: "Vikings",
       description: "Tv show",
       creator: "Michael Hirst",
       imgURL: "",
       type: "action"
-    });
+    }, {
 
-    this.myList.addItem({
-      id: 5,
+      id: 6,
       title: "Euphoria",
       description: "Tv show",
       creator: "Sam Levinson",
       imgURL: "",
       type: "Teen Drama"
-    });
+    }, {
 
-    this.myList.addItem({
-      id: 6,
+      id: 7,
       title: "Bridgerton",
       description: "Tv show",
       creator: "Michael Hirst",
       imgURL:"",
-    });
+    }];
   }
 
   ngOnInit(): void {
   }
 
   checkForTitle(searchValue: string): void{
-    let searchList = this.myList.light((c: { title: string; }) => c.title == searchValue);
+    let searchList = this.myList.light(c => c.title == searchValue);
     if (searchList.length > 0){
       this.searchMessage  = "Found the tvshow!";
       this.searchFlag = true;

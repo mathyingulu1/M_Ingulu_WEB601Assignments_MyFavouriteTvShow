@@ -460,6 +460,16 @@
     </a>
   </div>
 
+  <div *ngIf="messageService.messages.length">
+
+    <h2>Messages</h2>
+    <button type="button" class="clear"
+            (click)="messageService.clear()">Content array loaded</button>
+    <div *ngFor='let message of messageService.messages'> Content Item at id:
+      idNumberHere </div>
+  
+  </div>
+
   <!-- Footer -->
   <footer>
       Love Angular?&nbsp;

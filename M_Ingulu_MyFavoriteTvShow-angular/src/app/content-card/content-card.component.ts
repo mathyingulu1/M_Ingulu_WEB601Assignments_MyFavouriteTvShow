@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ContentListComponent } from '../content-list/content-list.component';
-//import {Contentinterface} from "../helper-files/content-interface";
+import { Component, Input, OnInit } from '@angular/core';
+//import { ContentListComponent } from '../content-list/content-list.component';
+import {Content } from '../helper-files/Tvshow';
 
 @Component({
   selector: 'app-content-card',
@@ -8,12 +8,14 @@ import { ContentListComponent } from '../content-list/content-list.component';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent implements OnInit {
-  myList: ContentListComponent;
-  @Input() myList.addItem: myList;
-  specialColor = 'blue';
+  //myList: ContentListComponent;
+  @Input() tvshow?: Content;
+  //specialColor = 'blue';
 
   constructor(){
-    this.myList = new ContentListComponent();
+
+  }
+    /*this.myList = new ContentListComponent();
     console.log("my list contains these items: ", this.myList.items);
     this.myList = { id: 0, name: '', body: '', imageUrl: ''};
 
@@ -52,8 +54,12 @@ export class ContentCardComponent implements OnInit {
   console.log("THe html output is: ", this.myList.getHtml(0));
 
   // myList.items = [];
-}
+}*/
 
   ngOnInit(): void {
+  }
+
+  imageClicked(): void {
+    console.log("ID: ", this.tvshow?.id, ", Title: ", this.tvshow?.title);
   }
 }

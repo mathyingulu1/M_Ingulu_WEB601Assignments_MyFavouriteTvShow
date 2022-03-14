@@ -7,7 +7,7 @@
 <h3 class="title">
     {{ tvshow?.title }}
 </h3>
-<img (click)="imageClicked()" *ngIf="tvshow?.imgURL" class="image" src="https://en.wikipedia.org/wiki/Vikings:_Valhalla#/media/File:Vikings_Valhalla_logo.jpg">
+<img (click)="imageClicked()" *ngIf="tvshow?.imgURL" class="image" [src]="tvshow?.imgURL">
 <p>
     {{ tvshow?.description }}
 </p>
@@ -24,7 +24,7 @@
         </span>
     </div>
 </div>
-<div *ngIf="tvshow">
+<!--<div *ngIf="tvshow">
     <div class="type">{{ tvshow | defaultType }}</div>
     <div appHoverAffect type='drama' class="body">{{ this.myList.body }}</div>
     <div><img [src]="this.myList ? this.myList.imageUrl : ''"></div>
@@ -33,10 +33,10 @@
         <span *ngSwitchCase='"thriller"'>who killed sara</span>
         <span *ngSwitchDefault>Tasteless</span>
     </div>
-    <!-- <div *ngif="foodItem ? foodItem.taste: ''" class="taste">{{ foodItem ? foodItem.taste : "" }}</div> -->
+     <div *ngif="foodItem ? foodItem.taste: ''" class="taste">{{ foodItem ? foodItem.taste : "" }}</div> 
     <div class="title" [style.type]='specialtype'>{{ tvshow.name }}</div>
     <div class="tags">
         <span appHoverAffect type="thriller" class="tag" *ngFor="let tag of tvshow.tags"> {{ tag }}</span>
     </div>
-    <!-- <span [innerHTML]="returnhtml()"></span> -->
-</div>
+     <span [innerHTML]="returnhtml()"></span> 
+</div>-->
