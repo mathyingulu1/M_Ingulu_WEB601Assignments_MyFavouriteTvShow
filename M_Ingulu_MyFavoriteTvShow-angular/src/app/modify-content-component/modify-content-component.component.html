@@ -1,0 +1,10 @@
+<button type="button" (click)="save()">save</button>
+<div>
+    <label for="new-Tvshow">Tvshow name: </label>
+    <input id="new-Tvshow" #TvshowName />
+  
+ 
+    <button type="button" class="add-button" (click)="add(TvshowName.value); TvshowName.value=''">
+      Add Tvshow
+    </button>
+  </div>

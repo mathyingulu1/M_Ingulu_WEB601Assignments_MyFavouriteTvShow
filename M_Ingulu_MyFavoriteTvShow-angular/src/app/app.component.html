@@ -470,6 +470,17 @@
   
   </div>
 
+  <div>
+    <label>Select an id number to display: <input type="number" #id></label>
+    <button (click)="displayTvshowItem(id.value)">Display Tvshow</button>
+  </div>
+
+  <app-content-card [movie]="someMovie" class="single-item-on-app-component"></app-content-card>
+
+<app-content-list></app-content-list>
+
+<app-messages></app-messages>
+
   <!-- Footer -->
   <footer>
       Love Angular?&nbsp;

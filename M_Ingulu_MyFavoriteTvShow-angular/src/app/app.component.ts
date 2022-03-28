@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 //import { Tvshow} from '../helper-files/Tvshow';
 import { Tvshow, tvshowService } from './tvshowServices/tvshow.service';
+import { messageService } from './tvshowServices';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 
 
 @Component({
@@ -10,94 +12,21 @@ import { Tvshow, tvshowService } from './tvshowServices/tvshow.service';
 })
 export class AppComponent implements OnInit{
   title = 'M_Ingulu_MyFavoriteTvShow-angular';
-  LISTOFTVSHOW: Tvshow[];
+  someTvshow?: Content;
+  //LISTOFTVSHOW: Tvshow[];
 
 
   constructor(private tvshowService: tvshowService) {
-    this.LISTOFTVSHOW = [];
-    this.title = 'Tvshow 1';
-
-    let name: any;
-
-    name = {
-      value: 'One tree hill',
-      position: 'favorite'
-    };
-
-    name = 10;
-
-    let ourPromise = new Promise((success, fail) => {
-      let testPass = false;
-      if (testPass) {
-        success("Victory!");
-      }
-      else {
-        fail("Failure :(");
-      }
-    });
-
-    console.log("First console log");
-
-    ourPromise
-      .then(function (successMessage) {
-        console.log("The promise succeeded and came back with the following message: ", successMessage);
-      })
-      .catch(function (failureMessage) {
-        console.log("The promise failed and came back with the following message: ", failureMessage);
-      });
-
-    console.log("Fourth console log");
-
-    let getStuff = async function () {
-      return "stuff";
+       
+    ngOnInit(): void{
+      this.messageService.getSingleTvShow(1).subscribe(Tvshow => this.someTvshow = Tvshow);
     }
 
-    let getTheSameStuff = async function () {
-      return "Similar stuff";
+    displayTvShowItem(id: string): void{
+      this.messageService.getSingleTvShow(parseInt(id)).subscribe(Tvshow => this.someTvshow = Tvshow);
     }
-
-    let getAllTheStuff = async () => {
-      const theFirstStuff = getStuff();
-      const theSecondStuff = getTheSameStuff();
-      
-      return await Promise.all([theFirstStuff, theSecondStuff]);
-    }
-    getAllTheStuff().then((value) => {
-      console.log("First value from the getAllTheStuff method: ", value[0]);
-      console.log("Second value from the getAllTheStuff method: ", value[1]);
-    });
-
   }
 
-  ngOnInit(): void {
-    this.tvshowService.getContentObs().subscribe(tvshowArray => this.LISTOFTVSHOW = tvshowArray);
-
-    
-    this.tvshowService.getContentObs().subscribe(tvshowArray => {
-      return this.LISTOFTVSHOW = tvshowArray; 
-    });
-
-  }
-
-  updatePage(cardNameOnTheTypescriptSide: string): void {
-    console.log("We did it, ", cardNameOnTheTypescriptSide);
-    cardNameOnTheTypescriptSide = "somethingelse"
-    console.log("after I tried changing it, ", cardNameOnTheTypescriptSide);
-
-    this.title = "Changed it from the submit button";
-  }
-
-  addtvshowToList(newtvshowFromChild: Tvshow) {
-    console.log("COntent array loaded ", this.LISTOFTVSHOW);
-
-    this.LISTOFTVSHOW.push(newtvshowFromChild);
-
-    this.LISTOFTVSHOW = [...this.LISTOFTVSHOW]; 
-
-    console.log("Did the item get added? ", newtvshowFromChild);
-    console.log("new array values ", this.LISTOFTVSHOW);
-  }
-  }
 
 
   //show = Tvshow[];
