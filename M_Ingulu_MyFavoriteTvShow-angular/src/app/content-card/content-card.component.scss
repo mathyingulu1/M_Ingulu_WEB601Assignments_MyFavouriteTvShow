@@ -1,48 +1,41 @@
-:host{
-    border: 1px solid #0000ff;
-    display: block;
-    margin: 16px auto;
-    padding: 8px;
-    width: 400px;
-    text-align: center;
+:host {
+  border: 1px solid #0000ff;
+  display: block;
+  margin: 16px auto;
+  padding: 8px;
+  width: 500px;
+  text-align: center;
 }
-
-.type{
-  color: #ff0000;
+:host.first-tvshow {
+  border: 6px solid #000;
 }
-:host.first-tvshow{
-    border: 2px solid #000;
-}
-:host.notype{
+:host.notype {
   background-color: darksalmon;
 }
-:host.drama{
+:host.drama {
   background-color: dodgerblue;
 }
-:host.thriller{
+:host.thriller {
   background-color: chartreuse;
 }
-:host.romance{
+:host.action {
   background-color: grey;
 }
-:host.found{
+:host.found {
   border-color: green;
   border-width: 5px;
-}
-:host.is-last{
-  background-color:#00ff00;
 }
 :host.single-item-on-app-component {
   box-shadow: 5px 10px #88888899;
 }
-.image{
-    width: 300px;
+.image {
+  width: 300px;
 }
-.tag{
-    display: inline-block;
-    border-radius: 20px;
-    border: 1px dotted #000;
-    background-color:aqua;
-    margin: 8px 16px;
-    padding: 8px;
+.tag {
+  display: inline-block;
+  border-radius: 10px;
+  border: 1px solid #ff0000;
+  background-color: aqua;
+  margin: 8px;
+  padding: 8px;
 }

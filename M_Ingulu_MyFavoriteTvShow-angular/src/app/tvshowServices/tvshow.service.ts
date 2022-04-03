@@ -1,75 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Tvshow } from '../helper-files/Tvshow';
-import { LISTOFTVSHOW } from '../helper-files/ContentDb';
-import { messageservice } from './tvshowServices';
 import { of, Observable } from 'rxjs';
+import { Content } from '../helper-files/content-interface';
+import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
-//import { Content } from '@angular/compiler/src/render3/r3_ast';
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class tvshowService {
-
-  private tvshowUrl = 'api/tvshow'; 
-  
-  constructor(
-    private http: HttpClient,
-    private messageservice: messageservice) { }
-
-private log(message: string) {
-  this.messageservice.add(`tvshowservice: ${message}`);
-}
-
-httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-//getTvshow(): Observable<Tvshow[]> {
-  //const Tvshow = of(LISTOFTVSHOW);
-  //return Tvshow;
-//}
-
-getTvshow(id: number): Observable<Tvshow> {
-  const url = `${this.tvshowUrl}/${id}`;
-  return this.http.get<Tvshow>(url) .pipe(
-    tap(_ => this.log(`fetched Tvshow id=${id}`)),
-    catchError(this.handleError<Tvshow>(`getTvshow id=${id}`))
-  );
-}
-
-updateTvshow(Tvshow: Tvshow): Observable<any> {
-  return this.http.put(this.tvshowUrl, Tvshow, this.httpOptions).pipe(
-    tap(_ => this.log(`updated hero id=${Tvshow.id}`)),
-    catchError(this.handleError<any>('updateHero'))
-  );
-}
-
-addHero(hero: Tvshow): Observable<Tvshow> {
-  return this.http.post<Tvshow>(this.tvshowUrl, hero, this.httpOptions).pipe(
-    tap((newTvshow: Tvshow) => this.log(`added Tvshow w/ id=${newTvshow.id}`)),
-    catchError(this.handleError<Tvshow>('addTvshow'))
-  );
-}
-private handleError<T>(operation = 'operation', result?: T) {
-  return (error: any): Observable<T> => {
-
-    console.error(error); 
-
-    this.log(`${operation} failed: ${error.message}`);
-    return of(result as T);
+export class MovieServiceService {
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-type':
+    'application/json' })
   };
-}
+  
+  constructor(private messageService: MessageService, private http: HttpClient) { }
 
-    getLISTOFTVSHOW(): Observable<Tvshow[]> {
-      this.messageservice.add("Content array loaded!");
-      return of(LISTOFTVSHOW);
+  addContent(newtvshow: Content): Observable<Content>{
+    this.messageService.add("Going to add tvshow to the server!");
+    return this.http.post<Content>("api/movie", newtvshow, this.httpOptions);
+  }
+
+  updateContent(oldtvshow: Content): Observable<any>{
+    return this.http.put("api/movie", oldtvshow, this.httpOptions);
     }
 
-    getSingleTvshow(id: number): Observable<Tvshow> {
-      let filteredlistoftvshow: Tvshow[] = LISTOFTVSHOW.filter(tvshowItem => tvshowItem.id === id);
-      // if the id is out of range, below 0 or above the length, the filter will return an empty array
+  gettvshowList(): Observable<Content[]> {
+    this.messageService.add("Content array loaded!");
+    return this.http.get<Content[]>("api/tvshow");
+  }
+
+  getSingletvshow(id: number): Observable<Content> {
+
+    return this.http.get<Content>("api/tvshow/" + id);
+
+/*       // if the id is out of range, below 0 or above the length, the filter will return an empty array
       if (filteredlistoftvshow.length)
       {
         this.messageservice.add(`Content Item at id: ${id}`);
@@ -84,6 +47,4 @@ private handleError<T>(operation = 'operation', result?: T) {
           director: "nobody"
         });
         }
-      }
-  
-    }
+      } */

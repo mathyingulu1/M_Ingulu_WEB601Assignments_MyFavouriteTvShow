@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-//import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 //import { CreateContentComponent } from './create-content/create-content.component';
 
 @NgModule({
@@ -26,12 +29,18 @@ import { InMemoryDataService } from './in-memory-data.service';
     //CreateContentComponent
   ],
   imports: [
-    BrowserModule
-    //FormsModule
+    BrowserModule,
+    FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false}
-    )
+      InMemoryDataService, { 
+        dataEncapsulation: false
+        delay: 3000,
+      }
+    ),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

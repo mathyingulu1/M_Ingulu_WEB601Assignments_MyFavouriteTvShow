@@ -1,30 +1,19 @@
-<p>content-list works!</p>
-<div class="Card">
-    <header class="header">
-        <h3>{{item.title}}</h3>
-    </header>
-    <div class="box">
-        <img(click)="OnImageClick()" [src]="item.imgURL"/>
-        <p*ngfl="item.description">{{ item class="description"}}></p>
-        <p>
-            {{item.type}}
-        </p>
-        <p>
-            {{item.creator}}
-        </p>
-
-        <div class="tags">
-            <span*ngFor="let tag of item.tags>{{tag}]"</span>
-        </div>
-    </div>
-</div>
+<app-modify-content-component (newContentEvent)="addContentToList($event)"></app-modify-content-component>
 <div class="search">
     <input #search>
     <button (click)="checkForTitle(search.value)">Check For Title</button>
     <h4 class="success" *ngIf="searchFlag">Title found</h4>
     <h4 class="fail" *ngIf="!searchFlag">Title not found</h4>
-  <!--  <div [class.success]="searchFlag" [class.fail]="!searchFlag"> {{ searchMessage }} </div>-->
+ 
   </div>
+
+  <mat-form-field>
+    <input matInput placeholder="hello world" #cardName />
+    </mat-form-field>
+    <button mat-raised-button color="primary"
+    (click)="clickEvent()">
+    Click me for an update!
+    </button>
   
   <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstTvshowOnList || isLast"
       *ngFor="let item of (myList | contentTypeFilter); first as isFirstTvshowList; last as isLast" [class.first-Tvshow]="isFirstTvshowOnList

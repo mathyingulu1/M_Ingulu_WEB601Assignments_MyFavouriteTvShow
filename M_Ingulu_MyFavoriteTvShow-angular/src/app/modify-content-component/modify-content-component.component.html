@@ -1,10 +1,47 @@
-<button type="button" (click)="save()">save</button>
+<mat-form-field>
+  <mat-label>ID </mat-label>
+  <input matInput placeholder="0" #id>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Name</mat-label>
+  <input matInput placeholder="Drama" #name>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Image URL</mat-label>
+  <input matInput placeholder="https://en.wikipedia.org/wiki/Kyle_XY#/media/File:KyleXYtitle.jpg" #imageUrl>
+</mat-form-field>
 <div>
-    <label for="new-Tvshow">Tvshow name: </label>
-    <input id="new-Tvshow" #TvshowName />
-  
- 
-    <button type="button" class="add-button" (click)="add(TvshowName.value); TvshowName.value=''">
-      Add Tvshow
-    </button>
-  </div>
+  body: <input #body>
+</div>
+<div>
+  tags: <input #tags>
+</div>
+<div>
+  <button mat-raised-button color="primary" (click)="addTvshow(name.value, imageUrl.value, body.value, tags.value)">Add Tvshow</button>
+  <button mat-raised-button color="accent" (click)="updateTvshow(id.value, name.value, imageUrl.value, body.value, tags.value)">Update Tvshow</button>
+</div>
+ <div>
+  ID: <input [(ngModel)]="tempId">
+</div>
+<div>
+  Title: <input [(ngModel)]="newContent.title">
+</div>
+
+<div>
+  Image: <input [(ngModel)]="newContent.imgURL">
+</div>
+<div>
+  description: <input [(ngModel)]="newContent.description">
+</div>
+<div>
+  Type: <input [(ngModel)]="newContent.type">
+</div>
+<div>
+  Creator: <input [(ngModel)]="newContent.creator">
+</div>
+<div>
+  Tags: <input [(ngModel)]="tempTags">
+</div>
+<div>
+  <button (click)="addContentFromChild()">{{tempId === "" ? "Add New tvshow" : "Update existing tvshow"}}</button>
+</div> 

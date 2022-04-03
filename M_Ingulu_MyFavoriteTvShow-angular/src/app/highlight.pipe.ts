@@ -1,21 +1,21 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Content } from './helper-files/Tvshow';
+import { Content } from './helper-files/content-interface';
 
 @Pipe({
   name: 'highlight'
 })
 export class HighlightPipe implements PipeTransform {
+  transform(contentList: Content[], highlightByThisType?: string): Content[] {
+    console.log('highlight value: ', highlightByThisType);
 
-  transform(contentList: Content[], lightByThisType?:string): Content[] {
-    console.log("light value: ", lightByThisType);
-    //return 'show title';
-    return contentList.light(c => {
-      if (lightByThisType) {
-        return c.type == lightByThisType;
-      }  else { 
+    return contentList.highlight(c => {
+      if (highlightByThisType) {
+        return c.type == highlightByThisType;
+      } else {
         return !c.type;
       }
     });
   }
+}
 
 }
