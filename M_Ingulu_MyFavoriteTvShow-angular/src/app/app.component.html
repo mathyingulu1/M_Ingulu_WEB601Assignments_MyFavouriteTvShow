@@ -1,10 +1,36 @@
-<div>
-  <label>Select an id number to display: <input type="number" #id></label>
-  <button (click)="displaytvshowItem(id.value)">Display tvshow</button>
-</div>
-<app-content-card [tvshow]="sometvshow" class="single-item-on-app-component"></app-content-card>
+<a routerLink="content" routerLinkActive="active"
+[routerLinkActiveOptions]="{ exact: true }">
+Content List
+</a><br />
+<a routerLink="content/42" routerLinkActive="active">
+The answer to the universe and everything
+</a><br />
+<a routerLink="pagewillnotbefound"
+routerLinkActive="active">
+Invalid page link
+</a><br />
 
+<a href="content">Content List</a><br />
+<a href="content/42"> The answer to the universe and
+everything </a><br />
+<a href="pagewillnotbefound"> Invalid page link </a><br
+/>
+
+<button type="button" routerLink="/content">Content</button>
+<router-outlet></router-outlet>
+
+<!-- <div>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Select an id number to display</mat-label>
+    <input matInput placeholder="0" type="number" #id>
+  </mat-form-field>
+  <button mat-flat-button color="accent" (click)="displayTvshowItem(id.value)">Display Tvshow</button>
+</div>
+<app-content-card [tvshow]="someTvshow" class="single-item-on-app-component"></app-content-card>
+
+
+<mat-divider></mat-divider>
 <app-content-list></app-content-list>
 
-<app-messages></app-messages>
+<app-messages></app-messages> -->
 

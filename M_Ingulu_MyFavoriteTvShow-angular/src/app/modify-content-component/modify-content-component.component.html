@@ -1,4 +1,8 @@
-<mat-form-field>
+<button mat-raised-button color="primary" (click)="openDialog()">
+  {{newContent.id != undefined && newContent.id != null ? "Update Content" : "Add New Content"}}
+</button>
+
+<!-- <mat-form-field>
   <mat-label>ID </mat-label>
   <input matInput placeholder="0" #id>
 </mat-form-field>
@@ -44,4 +48,4 @@
 </div>
 <div>
   <button (click)="addContentFromChild()">{{tempId === "" ? "Add New tvshow" : "Update existing tvshow"}}</button>
-</div> 
+</div>  -->

@@ -15,6 +15,13 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 //import { CreateContentComponent } from './create-content/create-content.component';
 
 @NgModule({
@@ -26,6 +33,8 @@ import { MatInputModule } from '@angular/material/input';
     HoverAffectDirective,
     MessagesComponent,
     ModifyContentComponentComponent,
+    ContentDetailComponent,
+    PageNotFoundComponent,
     //CreateContentComponent
   ],
   imports: [
@@ -34,13 +43,18 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { 
-        dataEncapsulation: false
+        dataEncapsulation: false,
         delay: 3000,
       }
     ),
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatDividerModule,
+    MatChipsModule,
+    MatBadgeModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

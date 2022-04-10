@@ -1,19 +1,14 @@
 <app-modify-content-component (newContentEvent)="addContentToList($event)"></app-modify-content-component>
 <div class="search">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search</mat-label>
+  </mat-form-field>
     <input #search>
-    <button (click)="checkForTitle(search.value)">Check For Title</button>
+    <button mat-flat-button color="primary" (click)="checkForTitle(search.value)">Check For Title</button>
     <h4 class="success" *ngIf="searchFlag">Title found</h4>
     <h4 class="fail" *ngIf="!searchFlag">Title not found</h4>
  
   </div>
-
-  <mat-form-field>
-    <input matInput placeholder="hello world" #cardName />
-    </mat-form-field>
-    <button mat-raised-button color="primary"
-    (click)="clickEvent()">
-    Click me for an update!
-    </button>
   
   <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstTvshowOnList || isLast"
       *ngFor="let item of (myList | contentTypeFilter); first as isFirstTvshowList; last as isLast" [class.first-Tvshow]="isFirstTvshowOnList
