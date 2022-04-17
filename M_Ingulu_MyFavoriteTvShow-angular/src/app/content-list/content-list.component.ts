@@ -16,8 +16,8 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tvshowServices.getMovieList().subscribe(tvshowList => {
-      this.tvshowList = tvshowList;
+    this.tvshowServices.getMovieList().subscribe(List => {
+      this.tvshowList = List;
     });
   }
 
@@ -35,8 +35,8 @@ export class ContentListComponent implements OnInit {
   addContentToList(newContentItem: Content): void {
    
 
-    this.tvshowServices.gettvshowList().subscribe(this.tvshowList => {
-      this.tvshowList = this.tvshowList;
+    this.tvshowServices.gettvshowList().subscribe(List => {
+      this.tvshowList = List;
     });
   }
 }
